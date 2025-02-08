@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8933787890792435167}
   - component: {fileID: 5133719835367900202}
   - component: {fileID: 4117515695644805179}
+  - component: {fileID: 4104619330526651203}
   m_Layer: 0
   m_Name: DetectCollider (0)
   m_TagString: Untagged
@@ -105,6 +106,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4104619330526651203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076837258833753469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe9c55e2d6494fefa19c0853a3012f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3020295336932759904
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +130,7 @@ GameObject:
   - component: {fileID: 4947017538848520592}
   - component: {fileID: 8358930292542409329}
   - component: {fileID: 4311820977661819206}
+  - component: {fileID: 5551755059933161111}
   m_Layer: 0
   m_Name: DetectCollider (1)
   m_TagString: Untagged
@@ -210,6 +224,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5551755059933161111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3020295336932759904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe9c55e2d6494fefa19c0853a3012f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3670363709239790411
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +248,7 @@ GameObject:
   - component: {fileID: 5855057014295096677}
   - component: {fileID: 8216170401344041394}
   - component: {fileID: 3571539627438745548}
+  - component: {fileID: 4882007218907887298}
   m_Layer: 0
   m_Name: DetectCollider (3)
   m_TagString: Untagged
@@ -315,6 +342,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4882007218907887298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670363709239790411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe9c55e2d6494fefa19c0853a3012f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4130144900307045744
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +366,7 @@ GameObject:
   - component: {fileID: 3835912772108871501}
   - component: {fileID: 4042183252040702520}
   - component: {fileID: 4361744953354836927}
+  - component: {fileID: 1116142564974943016}
   m_Layer: 0
   m_Name: DetectCollider (2)
   m_TagString: Untagged
@@ -420,6 +460,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1116142564974943016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4130144900307045744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe9c55e2d6494fefa19c0853a3012f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7976177027751332519
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +484,7 @@ GameObject:
   - component: {fileID: 7821704964431692541}
   - component: {fileID: 4686401481026885365}
   - component: {fileID: 3549940055352843475}
+  - component: {fileID: 7651896202684117596}
   m_Layer: 0
   m_Name: Main Plane 10x10
   m_TagString: Untagged
@@ -530,3 +583,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &7651896202684117596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7976177027751332519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df12862f3849c4839aaeaa0ed0ae983a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger:
+  - {fileID: 4104619330526651203}
+  - {fileID: 5551755059933161111}
+  - {fileID: 1116142564974943016}
+  - {fileID: 4882007218907887298}

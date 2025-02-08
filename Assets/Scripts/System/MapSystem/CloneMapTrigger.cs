@@ -8,8 +8,17 @@ public class CloneMapTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-           MapSystem.Instance.SpawnChunk();
-           MapSystem.Instance.RemoveOldChunk();
+            // MapSystem.Instance.SpawnChunk();
+            // MapSystem.Instance.RemoveOldChunk();
         }
+    }
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+
+    }
+    public void Show()
+    {
+        gameObject.SetActive(true);
     }
 }

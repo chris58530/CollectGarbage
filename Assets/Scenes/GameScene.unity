@@ -1392,7 +1392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 674121306}
-  offset: {x: 0, y: 10, z: -10}
+  offset: {x: 0, y: 4, z: -5}
   followSpeed: 5
 --- !u!1 &364251515
 GameObject:
@@ -1820,7 +1820,7 @@ GameObject:
   - component: {fileID: 518589916}
   - component: {fileID: 518589917}
   m_Layer: 0
-  m_Name: InitMapSystem
+  m_Name: MapSystemem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1853,13 +1853,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c214bed8452c94d518f881147dd5b18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainChunks:
-  - {fileID: 7976177027751332519, guid: 03a85ce5c67fd42fcbe2e12657adcd19, type: 3}
-  transitionChunks:
-  - {fileID: 2927676201986225488, guid: d10cf17495daa4b01939713e2905f852, type: 3}
-  maxChunks: 3
-  chunkSize: 1000
-  chunkIndex: 0
+  currentMap: {fileID: 0}
+  previousMap: {fileID: 0}
+  nextMap: {fileID: 0}
 --- !u!1 &532692284
 GameObject:
   m_ObjectHideFlags: 0
@@ -2351,7 +2347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db867da90c95447ef9c25636b315a4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 50
+  moveSpeed: 5
   rotationSpeed: 10
   gravity: -9.81
   interactRange: 2
@@ -2729,7 +2725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &952899025
 Transform:
   m_ObjectHideFlags: 0
