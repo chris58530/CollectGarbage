@@ -52,18 +52,20 @@ public class GameManager : Singleton<GameManager>
                 break;
             case GameState.SunDown:
                 powerSystem.EndSolarPower();
-
+                resteruantSystem.InitSystem();
                 break;
             case GameState.ResteruantOpen:
-
+                resteruantSystem.OpenResteruant();
 
                 break;
             case GameState.ResteruantClose:
-                ChangeGameState(GameState.DayEnd);
+                resteruantSystem.CloseResteraunt();
 
+                ChangeGameState(GameState.DayEnd);
                 break;
             case GameState.DayEnd:
                 timeSystem.CloseSystem();
+                resteruantSystem.ShutDownSystem();
                 break;
 
         }
