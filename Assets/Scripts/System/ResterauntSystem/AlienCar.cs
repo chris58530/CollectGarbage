@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AlienCar : MonoBehaviour, IObject
 {
+    
     public void Show() { 
         gameObject.SetActive(true);
     }

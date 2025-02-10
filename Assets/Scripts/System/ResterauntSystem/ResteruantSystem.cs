@@ -55,6 +55,7 @@ public class ResteruantSystem : MonoBehaviour, ISystem
 
         }
         customers.Clear();
+        
     }
 
 
