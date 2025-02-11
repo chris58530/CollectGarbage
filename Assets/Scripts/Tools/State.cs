@@ -9,3 +9,10 @@ public enum GameState
     ResteruantClose,
     DayEnd
 }
+
+public enum PlayControlState{
+    OutCar,
+    InCar,
+    
+
+}

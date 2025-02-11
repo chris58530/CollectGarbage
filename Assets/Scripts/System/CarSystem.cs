@@ -1,24 +1,38 @@
+using _.Scripts.Tools;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CarSystem : MonoBehaviour
+public class CarSystem : Singleton<CarSystem>, ISystem
 {
     public GameObject carUI; // UI 元素
-      
+    public bool isInCar;
 
-   
-void OnTriggerEnter(Collider other)
-{
-    if (other.gameObject.tag == "Player")
+    [SerializeField] private GameObject playerInCar;
+
+    public void InitSystem()
     {
-        carUI.SetActive(true); // 顯示 UI
+    }
+
+    public void RequestChangePlayControl()
+    {
+        switch (GameManager.Instance.playControlState)
+        {
+
+            case PlayControlState.OutCar:
+                playerInCar.SetActive(false);
+                GameManager.Instance.ChangePlayControlState(PlayControlState.InCar);
+
+                break;
+            case PlayControlState.InCar:
+                playerInCar.SetActive(true);
+                GameManager.Instance.ChangePlayControlState(PlayControlState.OutCar);
+
+                break;
+
+        }
+    }
+
+    public void ShutDownSystem()
+    {
     }
 }
-void OnTriggerExit(Collider other)
-{
-    if (other.gameObject.tag == "Player")
-    {
-        carUI.SetActive(false); // 隱藏 UI
-    }
-
-}}

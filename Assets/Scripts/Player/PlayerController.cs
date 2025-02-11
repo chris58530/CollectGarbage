@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController characterController;
     private Vector3 moveDirection;
-    private float verticalVelocity; public float detectRadius = 3f; // 檢測半徑
+    private float verticalVelocity;
+    public float detectRadius = 3f; // 檢測半徑
 
     void Start()
     {
@@ -74,7 +75,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-      // 在 Scene 視圖中可視化檢測範圍
+    // 在 Scene 視圖中可視化檢測範圍
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
