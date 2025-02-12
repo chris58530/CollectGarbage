@@ -9,8 +9,6 @@ public class CarDoor : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("ddddd");
-            CarSystem.Instance.RequestChangePlayControl();
             CarSystem.Instance.RequestChangePlayControl();
         }
     }
