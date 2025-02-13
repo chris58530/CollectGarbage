@@ -5,4 +5,15 @@ using UnityEngine;
 
 public class PlayerInCarController : Controller
 {
+    protected override void Update()
+    {
+        base.Update();
+        ExitCar();
     }
+    private void ExitCar()
+    {
+        if (!Input.GetKeyDown(KeyCode.Q)) return;
+
+        PlayerControlSystem.Instance.RequestFlipControl();
+    }
+}

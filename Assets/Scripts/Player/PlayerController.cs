@@ -13,7 +13,7 @@ public class PlayerController : Controller
     protected override void Update()
     {
         base.Update();
-
+        EnterCar();
         if (Input.GetKeyDown(KeyCode.E))
         {
             Interact();
@@ -33,7 +33,11 @@ public class PlayerController : Controller
             }
         }
     }
-
+    private void EnterCar()
+    {
+        if (!Input.GetKeyDown(KeyCode.Q)) return;
+        PlayerControlSystem.Instance.RequestFlipControl();
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

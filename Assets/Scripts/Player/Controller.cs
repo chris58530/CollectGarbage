@@ -1,3 +1,4 @@
+using Cinemachine.Utility;
 using UnityEngine;
 
 public class Controller : MonoBehaviour
@@ -17,16 +18,26 @@ public class Controller : MonoBehaviour
 
     protected virtual void Update()
     {
-        MovePlayer();
+        if (Input.anyKey)
+            Move();
+    }
+    public virtual void Show()
+    {
+        gameObject.SetActive(true);
+    }
+    public virtual void Hide()
+    {
+        gameObject.SetActive(false);
+
     }
 
-    protected void MovePlayer()
+    protected void Move()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        
+
         Vector3 inputDirection = new Vector3(horizontal, 0f, vertical).normalized;
-        
+
         if (inputDirection.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
@@ -40,7 +51,7 @@ public class Controller : MonoBehaviour
         {
             moveDirection = Vector3.zero;
         }
-        
+
         if (characterController.isGrounded)
         {
             verticalVelocity = -2f;
@@ -53,7 +64,7 @@ public class Controller : MonoBehaviour
         {
             verticalVelocity += gravity * Time.deltaTime;
         }
-        
+
         moveDirection.y = verticalVelocity;
         characterController.Move(moveDirection * Time.deltaTime);
     }

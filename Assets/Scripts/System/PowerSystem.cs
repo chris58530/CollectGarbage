@@ -57,7 +57,6 @@ public class PowerSystem : Singleton<PowerSystem>, ISystem
         {
             //未來加入天氣系統在這裡更改累計效率
             currentPower += 1;
-            Debug.Log($"currentPower ;  {currentPower}");
             view.UpdatePower(currentPower);
             yield return new WaitForSeconds(1f);
         }

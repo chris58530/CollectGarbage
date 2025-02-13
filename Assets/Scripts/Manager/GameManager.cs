@@ -13,9 +13,8 @@ public class GameManager : Singleton<GameManager>
     TimeSystem timeSystem;
     TravelMapSystem travelMapSystem;
     ResteruantSystem resteruantSystem;
-
-    public PlayControlState playControlState;
-    [SerializeField]private GameObject player;
+    PlayerControlSystem playerControlSystem;
+    [SerializeField] private GameObject player;
     protected override void Awake()
     {
         base.Awake();
@@ -23,29 +22,14 @@ public class GameManager : Singleton<GameManager>
         timeSystem = GetComponentInChildren<TimeSystem>();
         travelMapSystem = GetComponentInChildren<TravelMapSystem>();
         resteruantSystem = GetComponentInChildren<ResteruantSystem>();
+        playerControlSystem = GetComponentInChildren<PlayerControlSystem>();
     }
     void Start()
     {
         ChangeGameState(GameState.Init);
-        ChangePlayControlState(PlayControlState.OutCar);
+        playerControlSystem.ChangePlayControlState(PlayControlState.OutCar);
     }
-    public void ChangePlayControlState(PlayControlState state)
-    {
-        playControlState = state;
-        switch (state)
-        {
 
-            case PlayControlState.OutCar:
-                player.gameObject.SetActive(true);
-                break;
-            case PlayControlState.InCar:
-                player.gameObject.SetActive(false);
-
-                break;
-
-        }
-
-    }
 
     public void ChangeGameState(GameState state)
     {

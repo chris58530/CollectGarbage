@@ -7,9 +7,7 @@ public class CarDoor : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            CarSystem.Instance.RequestChangePlayControl();
-        }
+        if (!other.gameObject.CompareTag("Player")) return;
+        PlayerControlSystem.Instance.RequestFlipControl();
     }
 }
