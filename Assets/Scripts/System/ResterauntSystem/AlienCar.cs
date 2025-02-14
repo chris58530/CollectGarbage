@@ -45,14 +45,22 @@ public class AlienCar : MonoBehaviour, IObject
         var endPos = CarSystem.Instance.customersBuyingPoint;
         while (isOpenResteraunt)
         {
-            GameObject newCustomer = Instantiate(customer, transform.position,
-                        Quaternion.identity);
-            Sequence sequence = DOTween.Sequence();
-            sequence.Append(newCustomer.transform.DOMove(endPos.position, 5.0f))
-                    .AppendInterval(3.0f)
-                    .Append(newCustomer.transform.DOMove(transform.position, 5.0f));
-            yield return sequence.WaitForCompletion();
-            customers.Add(newCustomer);
+
+            for (int i = 0; i < 3; i++)
+            {
+
+
+                GameObject newCustomer = Instantiate(customer, transform.position, Quaternion.identity);
+                Sequence sequence = DOTween.Sequence();
+                sequence.Append(newCustomer.transform.DOMove(endPos.position, 5.0f))
+                        .AppendInterval(1.0f)
+                        .Append(newCustomer.transform.DOMove(transform.position, 5.0f));
+                customers.Add(newCustomer);
+                yield return sequence.WaitForCompletion();
+                customers.Add(newCustomer);
+
+
+            }
 
             yield return new WaitForSeconds(2);
         }
