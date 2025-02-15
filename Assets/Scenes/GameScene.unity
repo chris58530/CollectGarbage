@@ -1584,6 +1584,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9204942187280301413, guid: c8029d9672ef244af800caf14b81951e,
+        type: 3}
+      propertyPath: mBehaviorSource.mTaskData.JSONSerialization
+      value: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(345,-23.5)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.Evade","NodeData":{"Offset":"(-5,116.5)"},"ID":1,"Name":"Evade","Instant":true,"SharedFloatevadeDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":10},"SharedFloatlookAheadDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":5},"SharedFloattargetDistPrediction":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":20},"SharedFloattargetDistPredictionMult":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":20},"SharedGameObjecttarget":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":10},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":120},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Campervan","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Player","IsShared":true}]}'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1678,7 +1683,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 11.835764, z: -8.191522}
+  m_LocalPosition: {x: -9.63, y: 6.315764, z: -8.191521}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2130,7 +2135,7 @@ Transform:
   m_GameObject: {fileID: 401178582}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.8237047, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2949,7 +2954,7 @@ Transform:
   m_GameObject: {fileID: 674121304}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.1, z: 0}
+  m_LocalPosition: {x: -9.63, y: 0.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3403,7 +3408,7 @@ Transform:
   m_GameObject: {fileID: 851395061}
   serializedVersion: 2
   m_LocalRotation: {x: 0.37280348, y: 0, z: 0, w: 0.9279103}
-  m_LocalPosition: {x: 0.40302417, y: 1.8604003, z: 1.9521637}
+  m_LocalPosition: {x: 5.2418485, y: 4.0012074, z: 5.009553}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3454,7 +3459,7 @@ Transform:
   m_GameObject: {fileID: 893150893}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 11.835764, z: -8.191522}
+  m_LocalPosition: {x: -9.63, y: 6.315764, z: -8.191521}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3584,6 +3589,68 @@ MonoBehaviour:
   powerAmountText: {fileID: 0}
   todayNewsText: {fileID: 0}
   system: {fileID: 0}
+--- !u!1 &1056318394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1056318395}
+  - component: {fileID: 1056318396}
+  m_Layer: 0
+  m_Name: BehaviorTreeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1056318395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056318394}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1144497307}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1056318396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056318394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 189a28db7126c44178de6f0e81f69336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform:
+    mIsShared: 0
+    mIsGlobal: 0
+    mIsDynamic: 0
+    mName: 
+    mToolTip: 
+    mPropertyMapping: 
+    mPropertyMappingOwner: {fileID: 674121304}
+    mValue: {fileID: 674121304}
+  CampervanTransform:
+    mIsShared: 0
+    mIsGlobal: 0
+    mIsDynamic: 0
+    mName: 
+    mToolTip: 
+    mPropertyMapping: 
+    mPropertyMappingOwner: {fileID: 0}
+    mValue: {fileID: 0}
 --- !u!1 &1083365622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3714,6 +3781,7 @@ Transform:
   - {fileID: 518589916}
   - {fileID: 1697167114}
   - {fileID: 1632624554}
+  - {fileID: 1056318395}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1144497308
@@ -4604,7 +4672,7 @@ Transform:
   m_GameObject: {fileID: 1381233261}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3895758, y: 0, z: 0, w: 0.9209944}
-  m_LocalPosition: {x: 0.40302417, y: 1.8604003, z: 1.9521637}
+  m_LocalPosition: {x: 5.2273417, y: 3.977194, z: 4.975259}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4683,7 +4751,7 @@ Transform:
   m_GameObject: {fileID: 1392333599}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40626377, y: 0, z: 0, w: 0.9137559}
-  m_LocalPosition: {x: 0, y: 1.8519808, z: 1.9401394}
+  m_LocalPosition: {x: 5.1812887, y: 3.9047625, z: 4.8718157}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7144,7 +7212,7 @@ Transform:
   m_GameObject: {fileID: 2049731751}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7174457, z: -0, w: 0.69661456}
-  m_LocalPosition: {x: 0.8595526, y: 5.07, z: 5.7896595}
+  m_LocalPosition: {x: 0.8595526, y: 2.36, z: 5.7896595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
