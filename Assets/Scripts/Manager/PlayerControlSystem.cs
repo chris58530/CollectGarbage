@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerControlSystem : Singleton<PlayerControlSystem>
 {
     [SerializeField] private PlayerInCarController playerInCar;
-    [SerializeField] private PlayerController player;
+    [SerializeField] private PlayerController_Other player;
     public void ChangePlayControlState(PlayControlState state)
     {
         Proxy.playControlState = state;
