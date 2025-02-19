@@ -10,6 +10,7 @@ public class Controller : MonoBehaviour
     protected Vector3 moveDirection;
     protected float verticalVelocity;
     public Transform cameraTransform;
+    public bool isMove;
 
     protected virtual void Start()
     {
@@ -18,8 +19,7 @@ public class Controller : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (Input.anyKey)
-            Move();
+        Move();
     }
     public virtual void Show()
     {
@@ -31,11 +31,15 @@ public class Controller : MonoBehaviour
 
     }
 
-    protected void Move()
+    protected virtual void Move()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
+        if (horizontal != 0 || vertical != 0)
+        {
+            isMove = true;
+        }
+        else isMove = false;
         Vector3 inputDirection = new Vector3(horizontal, 0f, vertical).normalized;
 
         if (inputDirection.magnitude >= 0.1f)

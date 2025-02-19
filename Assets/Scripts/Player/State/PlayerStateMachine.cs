@@ -1,5 +1,4 @@
 using System;
-using _.Scripts.Player.Props;
 using UniRx;
 using UnityEngine;
 using UnityHFSM;

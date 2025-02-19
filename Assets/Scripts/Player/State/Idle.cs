@@ -1,4 +1,3 @@
-using _.Scripts.Player.Props;
 using _.Scripts.Tools;
 using UnityEngine;
 using UnityHFSM;

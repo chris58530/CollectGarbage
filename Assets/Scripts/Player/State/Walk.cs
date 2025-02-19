@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityHFSM;
 using System;
-using _.Scripts.Player.Props;
 using TMPro;
 using UniRx;
 
