@@ -4,7 +4,7 @@ using UniRx.Triggers;
 using UnityEngine;
 
 
-public class PlayerShootController : MonoBehaviour
+public class PlayerShootController : Controller
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform shootPoint;
@@ -13,34 +13,70 @@ public class PlayerShootController : MonoBehaviour
     [SerializeField] private int maxAmmo = 3;
     [SerializeField] private float reloadTime = 2f;
     [SerializeField] private WorldCanvas worldCanvas;
-     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask groundLayer;
     private int currentAmmo;
     private float nextFireTime;
     private bool isReloading;
-
-    void Start()
+   public float interactRange = 2f;
+    public float detectRadius = 3f;
+    protected override void Start()
     {
+        base.Start();
+
         currentAmmo = maxAmmo;
         UpdateGunColor();
     }
 
-    void Update()
+    protected override void Update()
     {
-
+        base.Update();
+        EnterCar();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Interact();
+        }
         if (isReloading) return;
 
         if (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButton(0) && Time.time >= nextFireTime)
         {
-        RotateTowardsMouse();
+            if (currentAmmo <= 0)
+            {
+                StartCoroutine(Reload());
+                return;
+            }
+            RotateTowardsMouse();
             Shoot();
         }
 
-        if (Input.GetKeyDown(KeyCode.L) || Input.GetMouseButton(1) && currentAmmo <= 0)
+        if (Input.GetKeyDown(KeyCode.L) || Input.GetMouseButton(1))
         {
             StartCoroutine(Reload());
         }
     }
+    void Interact()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectRadius);
+        foreach (var collider in hitColliders)
+        {
+            Resource resource = collider.GetComponent<Resource>();
+            if (resource != null)
+            {
+                resource.Collect();
+                break;
+            }
+        }
+    }
 
+    private void EnterCar()
+    {
+        if (!Input.GetKeyDown(KeyCode.Q)) return;
+        PlayerControlSystem.Instance.RequestFlipControl();
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectRadius);
+    }
     void Shoot()
     {
         if (currentAmmo > 0)
@@ -58,7 +94,6 @@ public class PlayerShootController : MonoBehaviour
 
     IEnumerator Reload()
     {
-        if (currentAmmo > 0) yield break;
         isReloading = true;
         worldCanvas.SetText("Reloading...", reloadTime);
         Debug.Log("Reloading...");
@@ -87,8 +122,8 @@ public class PlayerShootController : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
         {
-            Vector3 targetPosition = hit.point; 
-            targetPosition.y = transform.position.y; 
+            Vector3 targetPosition = hit.point;
+            targetPosition.y = transform.position.y;
 
             Vector3 direction = targetPosition - transform.position;
             if (direction.magnitude > 0.1f) // 避免零向量導致旋轉問題
