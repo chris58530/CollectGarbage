@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
+    public float damage;
     void Start()
     {
         StartCoroutine(MoveForward());
@@ -30,7 +31,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.TryGetComponent<IDamageable>(out var damageableObject))
         {
-            damageableObject.GetHurt();
+            damageableObject.GetHurt(damage);
             Destroy(gameObject);
         }
     }

@@ -12,7 +12,7 @@ public class AttackWeapon : MonoBehaviour
         if (!other.TryGetComponent<IDamageable>(out var damageObj)) return;
         //Enemy layer
 
-        damageObj.GetHurt();
+        damageObj.GetHurt(10);
         // //Damage frist then use attackActions effect attack
         // Vector3 thisPosition = transform.position;
         // Vector3 collisionPoint = other.ClosestPoint(thisPosition);

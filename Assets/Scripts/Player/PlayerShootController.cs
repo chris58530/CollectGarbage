@@ -6,24 +6,17 @@ using UnityEngine;
 
 public class PlayerShootController : Controller
 {
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform shootPoint;
     [SerializeField] private Material gunMaterial;
-    [SerializeField] private float fireCooldown = 0.5f;
-    [SerializeField] private int maxAmmo = 3;
-    [SerializeField] private float reloadTime = 2f;
     [SerializeField] private WorldCanvas worldCanvas;
     [SerializeField] private LayerMask groundLayer;
     private int currentAmmo;
-    private float nextFireTime;
-    private bool isReloading;
-   public float interactRange = 2f;
-    public float detectRadius = 3f;
+    private float power;
+    [SerializeField] private Gun gun;
+
     protected override void Start()
     {
         base.Start();
 
-        currentAmmo = maxAmmo;
         UpdateGunColor();
     }
 
@@ -31,77 +24,38 @@ public class PlayerShootController : Controller
     {
         base.Update();
         EnterCar();
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Interact();
-        }
-        if (isReloading) return;
 
-        if (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButton(0) && Time.time >= nextFireTime)
+
+        if (Input.GetKey(KeyCode.K) || Input.GetMouseButton(0))
         {
-            if (currentAmmo <= 0)
-            {
-                StartCoroutine(Reload());
-                return;
-            }
+            Charge();
             RotateTowardsMouse();
+        }
+        if (Input.GetKeyUp(KeyCode.K) || Input.GetMouseButtonUp(0))
+        {
             Shoot();
+            RotateTowardsMouse();
+            power = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.L) || Input.GetMouseButton(1))
-        {
-            StartCoroutine(Reload());
-        }
+
     }
-    void Interact()
+    public void Charge()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectRadius);
-        foreach (var collider in hitColliders)
-        {
-            Resource resource = collider.GetComponent<Resource>();
-            if (resource != null)
-            {
-                resource.Collect();
-                break;
-            }
-        }
+        power += Time.deltaTime * 1.5f;
+        worldCanvas.SetText("Power: " + power.ToString("F2"));
     }
 
-    private void EnterCar()
-    {
-        if (!Input.GetKeyDown(KeyCode.Q)) return;
-        PlayerControlSystem.Instance.RequestFlipControl();
-    }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectRadius);
-    }
+
+
     void Shoot()
     {
-        if (currentAmmo > 0)
-        {
-            Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
-            currentAmmo--;
-            nextFireTime = Time.time + fireCooldown;
-            UpdateGunColor();
-        }
-        else
-        {
-            Debug.Log("Out of ammo! Press L to reload.");
-        }
+        if (power <= 1) power = 1;
+        gun.Shoot((int)power);
+        worldCanvas.SetText($"Shoot {(int)power}", 1);
     }
 
-    IEnumerator Reload()
-    {
-        isReloading = true;
-        worldCanvas.SetText("Reloading...", reloadTime);
-        Debug.Log("Reloading...");
-        yield return new WaitForSeconds(reloadTime);
-        currentAmmo = maxAmmo;
-        isReloading = false;
-        UpdateGunColor();
-    }
+
 
     void UpdateGunColor()
     {
@@ -113,6 +67,12 @@ public class PlayerShootController : Controller
         {
             gunMaterial.color = Color.red;
         }
+    }
+
+    private void EnterCar()
+    {
+        if (!Input.GetKeyDown(KeyCode.Q)) return;
+        PlayerControlSystem.Instance.RequestFlipControl();
     }
 
     void RotateTowardsMouse()
